@@ -6,7 +6,10 @@ namespace budget{
 
 class Money{
 private:
+    // <explicit> prevents implicit conversion of other Number objects into a Money object
     explicit Money(std::int64_t cents) : cents_{cents} {}
+
+    // use <int64_t> to prevent floating-point errors + explicitly allocates 64 bits of memory for cents_
     std::int64_t cents_ = 0;
 public:
     // Creates a <Money> object from cents_
@@ -21,6 +24,11 @@ public:
     // Overloaded + operator
     Money operator+(Money other){
         return Money{cents_ + other.cents_};
+    }
+
+    // Overloaded - operator
+    Money operator-(Money other){
+        return Money{cents_ - other.cents_};
     }
 };
 }
