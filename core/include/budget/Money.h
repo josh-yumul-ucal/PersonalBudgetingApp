@@ -2,6 +2,7 @@
 #define MONEY_H
 #include <cstdint>
 #include <string>
+// defining <budget> namespace for use in app
 namespace budget{
 
 class Money{
