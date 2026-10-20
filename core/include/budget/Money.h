@@ -9,7 +9,19 @@ private:
     explicit Money(std::int64_t cents) : cents_{cents} {}
     std::int64_t cents_ = 0;
 public:
+    // Creates a <Money> object from cents_
     static Money fromCents(std::int64_t cents) {return Money{cents}};
+
+    // cents_ getter
+    std::int64_t cents() const {return cents_};
+
+    // Converts cents_ into dollars, and returns a string in the form: [dollar.cents]
+    std::string toString() const;
+
+    // Overloaded + operator
+    Money operator+(Money other){
+        return Money{cents_ + other.cents_};
+    }
 };
 }
 
