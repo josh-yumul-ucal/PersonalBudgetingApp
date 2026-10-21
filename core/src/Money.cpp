@@ -9,4 +9,9 @@ namespace budget{
         std::int64_t dollars = abs / 100, rem = abs % 100;
         return std::string(cents_ < 0 ? "-$":"$") + std::to_string(dollars) + "." + (rem < 10 ? "0":"") + std::to_string(rem);
     }
-}
+
+    bool Money::operator==(Money other) const{
+        return this->cents() == other.cents() ? true:false;
+    }
+
+};

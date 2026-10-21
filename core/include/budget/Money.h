@@ -23,14 +23,13 @@ public:
     std::string toString() const;
 
     // Overloaded + operator
-    Money operator+(Money other){
-        return Money{cents_ + other.cents_};
-    }
+    Money operator+(Money other){return Money{cents_ + other.cents_};}
 
     // Overloaded - operator
-    Money operator-(Money other){
-        return Money{cents_ - other.cents_};
-    }
+    Money operator-(Money other){return Money{cents_ - other.cents_};}
+
+    // Overloaded == operator
+    bool operator==(Money other) const;
 };
 }
 

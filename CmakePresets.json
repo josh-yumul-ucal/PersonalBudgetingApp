@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "configurePresets": [
+    { "name": "base", "hidden": true, "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}" },
+    { "name": "debug", "inherits": "base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" } },
+    { "name": "release", "inherits": "base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" } },
+    { "name": "core-only", "inherits": "debug",
+      "cacheVariables": { "BUDGET_BUILD_APP": "OFF" } }
+  ],
+  "buildPresets": [
+    { "name": "debug", "configurePreset": "debug" },
+    { "name": "core-only", "configurePreset": "core-only" }
+  ],
+  "testPresets": [
+    { "name": "core-only", "configurePreset": "core-only",
+      "output": { "outputOnFailure": true } }
+  ]
+}
